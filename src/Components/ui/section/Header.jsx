@@ -6,12 +6,19 @@ import {
   MdHistory,
 } from "react-icons/md";
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = ({ onMenuClick, onNotificationClick }) => {
   const [profile] = useState({
     name: "John Doe",
-    avatar: "src\assets\Avatar.jpg"
+    avatar: "assetsLogo.png",
   });
+
+  const location = useLocation();
+  // Get the last segment of the path, fallback to 'default'
+  const pageName =
+    location.pathname.split("/").filter(Boolean).pop()?.replace(/-/g, " ") ||
+    "home";
 
   return (
     <header className="h-14 bg-white flex items-center px-4">
@@ -26,7 +33,7 @@ const Header = ({ onMenuClick, onNotificationClick }) => {
       <div className="ml-4 text-sm text-gray-600 flex items-center gap-1">
         <span className="text-gray-500">Dashboards</span>
         <span>/</span>
-        <span className="font-medium text-gray-800">Default</span>
+        <span className="font-medium text-gray-800">{pageName}</span>
       </div>
 
       {/* Spacer */}
@@ -40,7 +47,9 @@ const Header = ({ onMenuClick, onNotificationClick }) => {
           placeholder="Search"
           className="pl-10 pr-12 py-1.5 rounded-lg border border-gray-200 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-green-500"
         />
-        <kbd className="absolute right-2 text-gray-400 text-xs pointer-events-none">⌘K</kbd>
+        <kbd className="absolute right-2 text-gray-400 text-xs pointer-events-none">
+          ⌘K
+        </kbd>
       </div>
 
       {/* Icons */}
@@ -58,7 +67,7 @@ const Header = ({ onMenuClick, onNotificationClick }) => {
           <MdNotifications size={18} />
         </button>
         <img
-          src="src\assets\Avatar.jpg"
+          src="public\assets\Avatar.jpg"
           alt={profile.name}
           className="h-7 w-7 rounded-full object-cover"
         />

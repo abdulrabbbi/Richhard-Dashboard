@@ -53,7 +53,7 @@ const LeftSidebar = ({ isOpen, setIsOpen }) => {
         {/* Logo section */}
         <div className="h-16 flex items-center px-6 justify-between">
           <div className="text-lg font-semibold tracking-tight flex gap-4"> 
-            <img src="src\assets\Logo.png" className="h-9"/> play
+            <img src="public\assets\Logo.png" className="h-9"/> play
           </div>
           <button className="lg:hidden" onClick={() => setIsOpen(false)}>
             <IoClose size={22} />

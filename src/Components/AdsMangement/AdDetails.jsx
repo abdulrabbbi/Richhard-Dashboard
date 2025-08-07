@@ -75,7 +75,7 @@ const AdDetails = () => {
           {/* Right Panel */}
           <div className="flex justify-center items-center">
             <img
-              src="/src/assets/Frame 3448.png"
+              src="public\assets\Frame 3448.png"
               alt="Ad Preview"
               className="rounded-lg h-full w-full max-w-xs object-cover"
             />

@@ -110,60 +110,82 @@ const AdsRequests = () => {
       {/* Top Table Card */}
       <Card className="p-4">
         <h2 className="text-lg font-semibold mb-2">Ads Requests</h2>
-        <CardContent>
-          <div className="overflow-x-auto w-full">
-            <table className="min-w-max w-full text-sm">
-              <thead className="text-left text-gray-500">
-                <tr>
-                  <th className="px-2 py-2">
-                    <Checkbox />
-                  </th>
-                  <th className="py-2">Users</th>
-                  <th className="py-2">Account Type</th>
-                  <th className="py-2">Date</th>
-                  <th className="py-2">Status</th>
-                  <th className="py-2">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr
-                    key={user.id}
-                    className="border-b border-gray-300 hover:bg-gray-50"
-                    style={{ borderBottomWidth: "0.2px" }}
-                  >
-                    <td className="px-2 py-2">
-                      <Checkbox />
-                    </td>
-                    <td className="flex items-center space-x-2 py-2">
-                      <img
-                        src={user.avatar}
-                        alt={user.name}
-                        className="w-8 h-8 rounded-full"
-                      />
-                      <span>{user.name}</span>
-                    </td>
-                    <td>{user.type}</td>
-                    <td>{user.date}</td>
-                    <td>
-                      <span
-                        className={`text-sm font-medium ${
-                          statusColors[user.status]
-                        }`}
-                      >
-                        ● {user.status}
-                      </span>
-                    </td>
-                    <td>
-                      <Button className="bg-[#dffd53] hover:bg-lime-500 text-black font-semibold px-3 py-1 text-xs">
-                        View More
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <CardContent className="overflow-x-auto">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center w-full justify-between">
+              <div className="flex items-center space-x-2">
+                <FaPlus className="cursor-pointer" />
+                <FaFilter className="cursor-pointer" />
+                <FaSort className="cursor-pointer" />
+              </div>
+              <div className="relative w-64">
+                <IoSearch className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Input
+                  type="text"
+                  placeholder="Search"
+                  className="pl-8 text-sm rounded-md w-full"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+            </div>
           </div>
+
+          {/* Table */}
+          <table className="min-w-full text-sm">
+            <thead className="text-left text-gray-500">
+              <tr>
+                <th className="px-2 py-2">
+                  <Checkbox />
+                </th>
+                <th className="py-2">Users</th>
+                <th className="py-2">Ad Type</th>
+                <th className="py-2">Date</th>
+                <th className="py-2">Status</th>
+                <th className="py-2">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <tr
+                  key={user.id}
+                  className="border-b border-gray-300 hover:bg-gray-50"
+                >
+                  <td className="px-2 py-2">
+                    <Checkbox />
+                  </td>
+                  <td className="flex items-center space-x-2 py-2">
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="w-8 h-8 rounded-full"
+                    />
+                    <span>{user.name}</span>
+                  </td>
+                  <td>
+                    {user.type === "Viewer"
+                      ? "Food"
+                      : user.type === "Influencer"
+                      ? "Marketing"
+                      : "Profile Boost"}
+                  </td>
+                  <td>{user.date}</td>
+                  <td>
+                    <span
+                      className={`text-sm font-medium ${statusColors[user.status]}`}
+                    >
+                      ● {user.status}
+                    </span>
+                  </td>
+                  <td>
+                    <Button className="bg-[#dffd53] hover:bg-lime-500 text-black font-semibold px-3 py-1 text-xs">
+                      View More
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
           {/* Pagination */}
           <div className="flex justify-end items-center space-x-2 mt-4">

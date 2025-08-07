@@ -8,9 +8,9 @@ import DashboardContent from "../Pages/MainDashboard";
 import UsersPage from "../Pages/UsersPage";
 import AdsPage from "../Pages/AdsPage";
 import AdsMangment from "../Pages/AdsMangment";
-import PaymentsPage from "../pages/PaymentPage";
-import SettingsPage from "../pages/Settings";
-import LoginPage from "../pages/Auth/Login";
+import PaymentsPage from "../Pages/PaymentPage";
+import SettingsPage from "../Pages/Settings";
+import LoginPage from "../Pages/Auth/Login";
 
 const Router = createBrowserRouter([
   {

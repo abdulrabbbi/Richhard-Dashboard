@@ -6,11 +6,10 @@ import DashboardLayout from "../layouts/SiteLayout";
 // Pages
 import DashboardContent from "../Pages/MainDashboard";
 import UsersPage from "../Pages/UsersPage";
-import AdsPage from "../pages/AdsPage";
+import AdsPage from "../Pages/AdsPage";
 import AdsMangment from "../Pages/AdsMangment";
 import PaymentsPage from "../pages/PaymentPage";
 import SettingsPage from "../pages/Settings";
-import ProfilePage from "../pages/Profile";
 import LoginPage from "../pages/Auth/Login";
 
 const Router = createBrowserRouter([
